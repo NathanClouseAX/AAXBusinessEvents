@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXAssetTrans_Table_Extension</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Extension of <c>AssetTrans</c> to trigger the fixed asset acquisition posted business event.
+/// </summary>
+[ExtensionOf(tableStr(AssetTrans))]
+final class AAXAssetTrans_Table_Extension
+{
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>insert</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Triggers the fixed asset acquisition posted business event when an acquisition transaction is posted.
+    /// </summary>
+    void insert()
+    {
+        next insert();
+
+        if (this.TransType == AssetTransType::Acquisition)
+        {
+            if (BusinessEventsConfigurationReader::isBusinessEventEnabled(classStr(AAXFixedAssetAcquisitionPostedBusinessEvent)))
+            {
+                AAXFixedAssetAcquisitionPostedBusinessEvent::newFromAssetTrans(this).send();
+            }
+        }
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

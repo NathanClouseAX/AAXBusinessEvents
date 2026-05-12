@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXProdOrderStartedBusinessEventContract</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Data contract for the <c>AAXProdOrderStartedBusinessEvent</c> business event.
+/// </summary>
+[DataContract]
+public final class AAXProdOrderStartedBusinessEventContract extends BusinessEventsContract
+{
+    private DataAreaId legalEntity;
+    private ProdId productionOrderId;
+    private ItemId itemId;
+    private str itemName;
+    private int productionStatus;
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>newFromProdTable</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Creates a new <c>AAXProdOrderStartedBusinessEventContract</c> from the specified <c>ProdTable</c> record.
+    /// </summary>
+    /// <param name="_prodTable">The source ProdTable record.</param>
+    /// <returns>A new populated instance of <c>AAXProdOrderStartedBusinessEventContract</c>.</returns>
+    public static AAXProdOrderStartedBusinessEventContract newFromProdTable(ProdTable _prodTable)
+    {
+        var contract = new AAXProdOrderStartedBusinessEventContract();
+        contract.initialize(_prodTable);
+
+        return contract;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>initialize</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Initializes the contract fields from the source record.
+    /// </summary>
+    /// <param name="_prodTable">The source ProdTable record.</param>
+    private void initialize(ProdTable _prodTable)
+    {
+        legalEntity = _prodTable.DataAreaId;
+        productionOrderId = _prodTable.ProdId;
+        itemId = _prodTable.ItemId;
+        itemName = InventTable::find(_prodTable.ItemId).NameAlias;
+        productionStatus = enum2int(_prodTable.ProdStatus);
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>new</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Private constructor. Use static factory methods to create instances.
+    /// </summary>
+    private void new()
+    {
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmLegalEntity</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the legal entity.
+    /// </summary>
+    /// <param name="_legalEntity">The legal entity value.</param>
+    /// <returns>The legal entity value.</returns>
+    [DataMember('legalEntity'), BusinessEventsDataMember("Legal Entity")]
+    public DataAreaId parmLegalEntity(DataAreaId _legalEntity = legalEntity)
+    {
+        legalEntity = _legalEntity;
+
+        return legalEntity;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmProductionOrderId</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the production order ID.
+    /// </summary>
+    /// <param name="_productionOrderId">The production order ID value.</param>
+    /// <returns>The production order ID value.</returns>
+    [DataMember('productionOrderId'), BusinessEventsDataMember("Production Order ID")]
+    public ProdId parmProductionOrderId(ProdId _productionOrderId = productionOrderId)
+    {
+        productionOrderId = _productionOrderId;
+
+        return productionOrderId;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmItemId</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the item number.
+    /// </summary>
+    /// <param name="_itemId">The item number value.</param>
+    /// <returns>The item number value.</returns>
+    [DataMember('itemId'), BusinessEventsDataMember("Item Number")]
+    public ItemId parmItemId(ItemId _itemId = itemId)
+    {
+        itemId = _itemId;
+
+        return itemId;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmItemName</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the item name.
+    /// </summary>
+    /// <param name="_itemName">The item name value.</param>
+    /// <returns>The item name value.</returns>
+    [DataMember('itemName'), BusinessEventsDataMember("Item Name")]
+    public str parmItemName(str _itemName = itemName)
+    {
+        itemName = _itemName;
+
+        return itemName;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmProductionStatus</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the production status.
+    /// </summary>
+    /// <param name="_productionStatus">The production status value.</param>
+    /// <returns>The production status value.</returns>
+    [DataMember('productionStatus'), BusinessEventsDataMember("Production Status")]
+    public int parmProductionStatus(int _productionStatus = productionStatus)
+    {
+        productionStatus = _productionStatus;
+
+        return productionStatus;
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXBOMCalcTable_Table_Extension</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Extension of <c>BOMCalcTable</c> to trigger the BOM calculation completed business event.
+/// </summary>
+[ExtensionOf(tableStr(BOMCalcTable))]
+final class AAXBOMCalcTable_Table_Extension
+{
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>insert</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Triggers the BOM calculation completed business event when a new BOM calculation record is created.
+    /// </summary>
+    void insert()
+    {
+        next insert();
+
+        if (BusinessEventsConfigurationReader::isBusinessEventEnabled(classStr(AAXBOMCalcCompletedBusinessEvent)))
+        {
+            AAXBOMCalcCompletedBusinessEvent::newFromBOMCalcTable(this).send();
+        }
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

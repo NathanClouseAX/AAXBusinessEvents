@@ -1,0 +1,101 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36811.4 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FC65038C-1B2F-41E1-A629-BED71D161FFF}") = "VendorCreatedBusinessEvent (USR) [AAXBusinessEvents]", "VendorCreatedBusinessEvent\VendorCreatedBusinessEvent.rnrproj", "{F22918B0-5677-4A0E-8C07-5620C86AAE3D}"
+EndProject
+Project("{FC65038C-1B2F-41E1-A629-BED71D161FFF}") = "VendorUpdatedBusinessEvent (USR) [AAXBusinessEvents]", "VendorUpdatedBusinessEvent\VendorUpdatedBusinessEvent.rnrproj", "{937120F4-1AC4-468D-BD76-AD9B57EC62D8}"
+EndProject
+Project("{FC65038C-1B2F-41E1-A629-BED71D161FFF}") = "ProdReportFinishedBusinessEvent (USR) [AAXBusinessEvents]", "ProdReportFinishedBusinessEvent\ProdReportFinishedBusinessEvent.rnrproj", "{E01856D1-54C3-43C6-A5C2-D61C1E360EFE}"
+EndProject
+Project("{FC65038C-1B2F-41E1-A629-BED71D161FFF}") = "ProdPickListPostedBusinessEvent (USR) [AAXBusinessEvents]", "ProdPickListPostedBusinessEvent\ProdPickListPostedBusinessEvent.rnrproj", "{6AC164EC-B5B2-4F3F-AA08-B6BF0C155C75}"
+EndProject
+Project("{FC65038C-1B2F-41E1-A629-BED71D161FFF}") = "ProdRouteCardPostedBusinessEvent (USR) [AAXBusinessEvents]", "ProdRouteCardPostedBusinessEvent\ProdRouteCardPostedBusinessEvent.rnrproj", "{6CB73397-5CC9-4588-B598-92AEE2CA2381}"
+EndProject
+Project("{FC65038C-1B2F-41E1-A629-BED71D161FFF}") = "ProdOrderEndedBusinessEvent (USR) [AAXBusinessEvents]", "ProdOrderEndedBusinessEvent\ProdOrderEndedBusinessEvent.rnrproj", "{772FCF0F-FA7B-4C7C-8D83-F959A9969261}"
+EndProject
+Project("{FC65038C-1B2F-41E1-A629-BED71D161FFF}") = "TransferOrderShippedBusinessEvent (USR) [AAXBusinessEvents]", "TransferOrderShippedBusinessEvent\TransferOrderShippedBusinessEvent.rnrproj", "{86F0C542-B5B1-4912-999D-64C782E463AF}"
+EndProject
+Project("{FC65038C-1B2F-41E1-A629-BED71D161FFF}") = "GeneralJournalPostedBusinessEvent (USR) [AAXBusinessEvents]", "GeneralJournalPostedBusinessEvent\GeneralJournalPostedBusinessEvent.rnrproj", "{9BC7CD9D-10F8-484F-B81F-51EE172F0980}"
+EndProject
+Project("{FC65038C-1B2F-41E1-A629-BED71D161FFF}") = "SalesOrderConfirmedBusinessEvent (USR) [AAXBusinessEvents]", "SalesOrderConfirmedBusinessEvent\SalesOrderConfirmedBusinessEvent.rnrproj", "{BA9ECDF8-7052-4D1D-B1C4-B13D3374E4D2}"
+EndProject
+Project("{FC65038C-1B2F-41E1-A629-BED71D161FFF}") = "ProdOrderEstimatedBusinessEvent (USR) [AAXBusinessEvents]", "ProdOrderEstimatedBusinessEvent\ProdOrderEstimatedBusinessEvent.rnrproj", "{774460BE-A64A-48C6-834F-C9DEDDDD9896}"
+EndProject
+Project("{FC65038C-1B2F-41E1-A629-BED71D161FFF}") = "BOMCalcCompletedBusinessEvent (USR) [AAXBusinessEvents]", "BOMCalcCompletedBusinessEvent\BOMCalcCompletedBusinessEvent.rnrproj", "{4E15EBE6-43C5-42CA-B777-FDD6D069AE8B}"
+EndProject
+Project("{FC65038C-1B2F-41E1-A629-BED71D161FFF}") = "InventClosingCompletedBusinessEvent (USR) [AAXBusinessEvents]", "InventClosingCompletedBusinessEvent\InventClosingCompletedBusinessEvent.rnrproj", "{AD4CC570-616D-41A3-BF5B-566DA592C9A5}"
+EndProject
+Project("{FC65038C-1B2F-41E1-A629-BED71D161FFF}") = "MRPRunCompletedBusinessEvent (USR) [AAXBusinessEvents]", "MRPRunCompletedBusinessEvent\MRPRunCompletedBusinessEvent.rnrproj", "{23227653-2FC2-4A8F-A7ED-6656FE88FA4F}"
+EndProject
+Project("{FC65038C-1B2F-41E1-A629-BED71D161FFF}") = "SalesPackingSlipPostedBusinessEvent", "SalesPackingSlipPostedBusinessEvent\SalesPackingSlipPostedBusinessEvent.rnrproj", "{9A6AFE56-76CB-4122-9226-6C8E5D3B96D7}"
+EndProject
+Project("{FC65038C-1B2F-41E1-A629-BED71D161FFF}") = "TransferOrderReceivedBusinessEvent", "TransferOrderReceivedBusinessEvent\TransferOrderReceivedBusinessEvent.rnrproj", "{EF580010-2D77-4933-BFCB-24BBBBE3FD12}"
+EndProject
+Project("{FC65038C-1B2F-41E1-A629-BED71D161FFF}") = "SalesReturnOrderCreatedBusinessEvent", "SalesReturnOrderCreatedBusinessEvent\SalesReturnOrderCreatedBusinessEvent.rnrproj", "{C4FA0721-A8C4-4216-966C-8B226B63849D}"
+EndProject
+Project("{FC65038C-1B2F-41E1-A629-BED71D161FFF}") = "PurchReturnOrderCreatedBusinessEvent", "PurchReturnOrderCreatedBusinessEvent\PurchReturnOrderCreatedBusinessEvent.rnrproj", "{738249BA-0BDF-4C10-9A42-0F2494D29F0D}"
+EndProject
+Project("{FC65038C-1B2F-41E1-A629-BED71D161FFF}") = "ProdOrderStartedBusinessEvent", "ProdOrderStartedBusinessEvent\ProdOrderStartedBusinessEvent.rnrproj", "{EA57C272-1BEA-4064-A62B-0FAE1BA3722F}"
+EndProject
+Project("{FC65038C-1B2F-41E1-A629-BED71D161FFF}") = "ProdOrderScheduledBusinessEvent", "ProdOrderScheduledBusinessEvent\ProdOrderScheduledBusinessEvent.rnrproj", "{252865E7-3714-4414-A2A1-4F376FB7FD71}"
+EndProject
+Project("{FC65038C-1B2F-41E1-A629-BED71D161FFF}") = "FixedAssetAcquisitionPostedBusinessEvent", "FixedAssetAcquisitionPostedBusinessEvent\FixedAssetAcquisitionPostedBusinessEvent.rnrproj", "{7E7478FB-1458-4424-985A-F06BB8F5D5C6}"
+EndProject
+Project("{FC65038C-1B2F-41E1-A629-BED71D161FFF}") = "FreeTextInvoicePostedBusinessEvent", "FreeTextInvoicePostedBusinessEvent\FreeTextInvoicePostedBusinessEvent.rnrproj", "{13201B9D-775F-49BA-8442-E911098A32DA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F22918B0-5677-4A0E-8C07-5620C86AAE3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F22918B0-5677-4A0E-8C07-5620C86AAE3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{937120F4-1AC4-468D-BD76-AD9B57EC62D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{937120F4-1AC4-468D-BD76-AD9B57EC62D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E01856D1-54C3-43C6-A5C2-D61C1E360EFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E01856D1-54C3-43C6-A5C2-D61C1E360EFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AC164EC-B5B2-4F3F-AA08-B6BF0C155C75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AC164EC-B5B2-4F3F-AA08-B6BF0C155C75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CB73397-5CC9-4588-B598-92AEE2CA2381}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CB73397-5CC9-4588-B598-92AEE2CA2381}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{772FCF0F-FA7B-4C7C-8D83-F959A9969261}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{772FCF0F-FA7B-4C7C-8D83-F959A9969261}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86F0C542-B5B1-4912-999D-64C782E463AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86F0C542-B5B1-4912-999D-64C782E463AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BC7CD9D-10F8-484F-B81F-51EE172F0980}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BC7CD9D-10F8-484F-B81F-51EE172F0980}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA9ECDF8-7052-4D1D-B1C4-B13D3374E4D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA9ECDF8-7052-4D1D-B1C4-B13D3374E4D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{774460BE-A64A-48C6-834F-C9DEDDDD9896}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{774460BE-A64A-48C6-834F-C9DEDDDD9896}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E15EBE6-43C5-42CA-B777-FDD6D069AE8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E15EBE6-43C5-42CA-B777-FDD6D069AE8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD4CC570-616D-41A3-BF5B-566DA592C9A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD4CC570-616D-41A3-BF5B-566DA592C9A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23227653-2FC2-4A8F-A7ED-6656FE88FA4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23227653-2FC2-4A8F-A7ED-6656FE88FA4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A6AFE56-76CB-4122-9226-6C8E5D3B96D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A6AFE56-76CB-4122-9226-6C8E5D3B96D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF580010-2D77-4933-BFCB-24BBBBE3FD12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF580010-2D77-4933-BFCB-24BBBBE3FD12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4FA0721-A8C4-4216-966C-8B226B63849D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4FA0721-A8C4-4216-966C-8B226B63849D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{738249BA-0BDF-4C10-9A42-0F2494D29F0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{738249BA-0BDF-4C10-9A42-0F2494D29F0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA57C272-1BEA-4064-A62B-0FAE1BA3722F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA57C272-1BEA-4064-A62B-0FAE1BA3722F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{252865E7-3714-4414-A2A1-4F376FB7FD71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{252865E7-3714-4414-A2A1-4F376FB7FD71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E7478FB-1458-4424-985A-F06BB8F5D5C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E7478FB-1458-4424-985A-F06BB8F5D5C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13201B9D-775F-49BA-8442-E911098A32DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13201B9D-775F-49BA-8442-E911098A32DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {79B89535-4CA7-49A8-A1A9-1BD1B7A477D7}
+	EndGlobalSection
+EndGlobal

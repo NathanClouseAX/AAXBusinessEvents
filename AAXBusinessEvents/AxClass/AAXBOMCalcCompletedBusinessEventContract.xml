@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXBOMCalcCompletedBusinessEventContract</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Data contract for the <c>AAXBOMCalcCompletedBusinessEvent</c> business event.
+/// </summary>
+[DataContract]
+public final class AAXBOMCalcCompletedBusinessEventContract extends BusinessEventsContract
+{
+    private DataAreaId legalEntity;
+    private ItemId itemId;
+    private real costPrice;
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>newFromBOMCalcTable</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Creates a new <c>AAXBOMCalcCompletedBusinessEventContract</c> from the specified <c>BOMCalcTable</c> record.
+    /// </summary>
+    /// <param name="_bomCalcTable">The source BOMCalcTable record.</param>
+    /// <returns>A new populated instance of <c>AAXBOMCalcCompletedBusinessEventContract</c>.</returns>
+    public static AAXBOMCalcCompletedBusinessEventContract newFromBOMCalcTable(BOMCalcTable _bomCalcTable)
+    {
+        var contract = new AAXBOMCalcCompletedBusinessEventContract();
+        contract.initialize(_bomCalcTable);
+
+        return contract;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>initialize</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Initializes the contract fields from the source record.
+    /// </summary>
+    /// <param name="_bomCalcTable">The source BOMCalcTable record.</param>
+    private void initialize(BOMCalcTable _bomCalcTable)
+    {
+        legalEntity = _bomCalcTable.DataAreaId;
+        itemId = _bomCalcTable.ItemId;
+        costPrice = _bomCalcTable.CostPrice;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>new</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Private constructor. Use static factory methods to create instances.
+    /// </summary>
+    private void new()
+    {
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmLegalEntity</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the legal entity.
+    /// </summary>
+    /// <param name="_legalEntity">The legal entity value.</param>
+    /// <returns>The legal entity value.</returns>
+    [DataMember('legalEntity'), BusinessEventsDataMember("Legal Entity")]
+    public DataAreaId parmLegalEntity(DataAreaId _legalEntity = legalEntity)
+    {
+        legalEntity = _legalEntity;
+
+        return legalEntity;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmItemId</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the item number.
+    /// </summary>
+    /// <param name="_itemId">The item number value.</param>
+    /// <returns>The item number value.</returns>
+    [DataMember('itemId'), BusinessEventsDataMember("Item Number")]
+    public ItemId parmItemId(ItemId _itemId = itemId)
+    {
+        itemId = _itemId;
+
+        return itemId;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmCostPrice</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the cost price.
+    /// </summary>
+    /// <param name="_costPrice">The cost price value.</param>
+    /// <returns>The cost price value.</returns>
+    [DataMember('costPrice'), BusinessEventsDataMember("Cost Price")]
+    public real parmCostPrice(real _costPrice = costPrice)
+    {
+        costPrice = _costPrice;
+
+        return costPrice;
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

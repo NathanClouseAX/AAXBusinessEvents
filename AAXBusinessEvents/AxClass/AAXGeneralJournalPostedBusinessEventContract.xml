@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXGeneralJournalPostedBusinessEventContract</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Data contract for the <c>AAXGeneralJournalPostedBusinessEvent</c> business event.
+/// </summary>
+[DataContract]
+public final class AAXGeneralJournalPostedBusinessEventContract extends BusinessEventsContract
+{
+    private DataAreaId legalEntity;
+    private str journalNumber;
+    private str journalName;
+    private str description;
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>newFromLedgerJournalTable</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Creates a new <c>AAXGeneralJournalPostedBusinessEventContract</c> from the specified <c>LedgerJournalTable</c> record.
+    /// </summary>
+    /// <param name="_ledgerJournalTable">The source LedgerJournalTable record.</param>
+    /// <returns>A new populated instance of <c>AAXGeneralJournalPostedBusinessEventContract</c>.</returns>
+    public static AAXGeneralJournalPostedBusinessEventContract newFromLedgerJournalTable(LedgerJournalTable _ledgerJournalTable)
+    {
+        var contract = new AAXGeneralJournalPostedBusinessEventContract();
+        contract.initialize(_ledgerJournalTable);
+
+        return contract;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>initialize</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Initializes the contract fields from the source record.
+    /// </summary>
+    /// <param name="_ledgerJournalTable">The source LedgerJournalTable record.</param>
+    private void initialize(LedgerJournalTable _ledgerJournalTable)
+    {
+        legalEntity = _ledgerJournalTable.DataAreaId;
+        journalNumber = _ledgerJournalTable.JournalNum;
+        journalName = _ledgerJournalTable.JournalName;
+        description = _ledgerJournalTable.Name;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>new</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Private constructor. Use static factory methods to create instances.
+    /// </summary>
+    private void new()
+    {
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmLegalEntity</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the legal entity.
+    /// </summary>
+    /// <param name="_legalEntity">The legal entity value.</param>
+    /// <returns>The legal entity value.</returns>
+    [DataMember('legalEntity'), BusinessEventsDataMember("Legal Entity")]
+    public DataAreaId parmLegalEntity(DataAreaId _legalEntity = legalEntity)
+    {
+        legalEntity = _legalEntity;
+
+        return legalEntity;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmJournalNumber</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the journal number.
+    /// </summary>
+    /// <param name="_journalNumber">The journal number value.</param>
+    /// <returns>The journal number value.</returns>
+    [DataMember('journalNumber'), BusinessEventsDataMember("Journal Number")]
+    public str parmJournalNumber(str _journalNumber = journalNumber)
+    {
+        journalNumber = _journalNumber;
+
+        return journalNumber;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmJournalName</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the journal name.
+    /// </summary>
+    /// <param name="_journalName">The journal name value.</param>
+    /// <returns>The journal name value.</returns>
+    [DataMember('journalName'), BusinessEventsDataMember("Journal Name")]
+    public str parmJournalName(str _journalName = journalName)
+    {
+        journalName = _journalName;
+
+        return journalName;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmDescription</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the description.
+    /// </summary>
+    /// <param name="_description">The description value.</param>
+    /// <returns>The description value.</returns>
+    [DataMember('description'), BusinessEventsDataMember("Description")]
+    public str parmDescription(str _description = description)
+    {
+        description = _description;
+
+        return description;
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

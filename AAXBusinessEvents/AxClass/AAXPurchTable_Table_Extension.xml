@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXPurchTable_Table_Extension</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Extension of <c>PurchTable</c> to trigger the purchase return order created business event.
+/// </summary>
+[ExtensionOf(tableStr(PurchTable))]
+final class AAXPurchTable_Table_Extension
+{
+    /// <summary>
+    /// Triggers the purchase return order created business event when a return order is created.
+    /// </summary>
+    //TODO rig up to PurchTableType_ReturnItem
+    //void insert()
+    //{
+    //    next insert();
+
+    //    if (this.PurchaseType == PurchaseType::ReturnItem)
+    //    {
+    //        if (BusinessEventsConfigurationReader::isBusinessEventEnabled(classStr(AAXPurchReturnOrderCreatedBusinessEvent)))
+    //        {
+    //            AAXPurchReturnOrderCreatedBusinessEvent::newFromPurchTable(this).send();
+    //        }
+    //    }
+    //}
+
+}
+]]></Declaration>
+		<Methods />
+	</SourceCode>
+</AxClass>

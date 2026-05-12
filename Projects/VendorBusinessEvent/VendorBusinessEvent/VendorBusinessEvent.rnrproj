@@ -35,6 +35,121 @@
     <Folder Include="Classes\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AxClass\AAXGeneralJournalPostedBusinessEvent">
+      <SubType>Content</SubType>
+      <Name>AAXGeneralJournalPostedBusinessEvent</Name>
+      <Link>Classes\AAXGeneralJournalPostedBusinessEvent</Link>
+    </Content>
+    <Content Include="AxClass\AAXGeneralJournalPostedBusinessEventContract">
+      <SubType>Content</SubType>
+      <Name>AAXGeneralJournalPostedBusinessEventContract</Name>
+      <Link>Classes\AAXGeneralJournalPostedBusinessEventContract</Link>
+    </Content>
+    <Content Include="AxClass\AAXInventJournalTable_Table_Extension">
+      <SubType>Content</SubType>
+      <Name>AAXInventJournalTable_Table_Extension</Name>
+      <Link>Classes\AAXInventJournalTable_Table_Extension</Link>
+    </Content>
+    <Content Include="AxClass\AAXInventoryCountingPostedBusinessEvent">
+      <SubType>Content</SubType>
+      <Name>AAXInventoryCountingPostedBusinessEvent</Name>
+      <Link>Classes\AAXInventoryCountingPostedBusinessEvent</Link>
+    </Content>
+    <Content Include="AxClass\AAXInventoryCountingPostedBusinessEventContract">
+      <SubType>Content</SubType>
+      <Name>AAXInventoryCountingPostedBusinessEventContract</Name>
+      <Link>Classes\AAXInventoryCountingPostedBusinessEventContract</Link>
+    </Content>
+    <Content Include="AxClass\AAXInventTransferTable_Table_Extension">
+      <SubType>Content</SubType>
+      <Name>AAXInventTransferTable_Table_Extension</Name>
+      <Link>Classes\AAXInventTransferTable_Table_Extension</Link>
+    </Content>
+    <Content Include="AxClass\AAXLedgerJournalTable_Table_Extension">
+      <SubType>Content</SubType>
+      <Name>AAXLedgerJournalTable_Table_Extension</Name>
+      <Link>Classes\AAXLedgerJournalTable_Table_Extension</Link>
+    </Content>
+    <Content Include="AxClass\AAXProdJournalTable_Table_Extension">
+      <SubType>Content</SubType>
+      <Name>AAXProdJournalTable_Table_Extension</Name>
+      <Link>Classes\AAXProdJournalTable_Table_Extension</Link>
+    </Content>
+    <Content Include="AxClass\AAXProdOrderEndedBusinessEvent">
+      <SubType>Content</SubType>
+      <Name>AAXProdOrderEndedBusinessEvent</Name>
+      <Link>Classes\AAXProdOrderEndedBusinessEvent</Link>
+    </Content>
+    <Content Include="AxClass\AAXProdOrderEndedBusinessEventContract">
+      <SubType>Content</SubType>
+      <Name>AAXProdOrderEndedBusinessEventContract</Name>
+      <Link>Classes\AAXProdOrderEndedBusinessEventContract</Link>
+    </Content>
+    <Content Include="AxClass\AAXProdPickListPostedBusinessEvent">
+      <SubType>Content</SubType>
+      <Name>AAXProdPickListPostedBusinessEvent</Name>
+      <Link>Classes\AAXProdPickListPostedBusinessEvent</Link>
+    </Content>
+    <Content Include="AxClass\AAXProdPickListPostedBusinessEventContract">
+      <SubType>Content</SubType>
+      <Name>AAXProdPickListPostedBusinessEventContract</Name>
+      <Link>Classes\AAXProdPickListPostedBusinessEventContract</Link>
+    </Content>
+    <Content Include="AxClass\AAXProdReportFinishedBusinessEvent">
+      <SubType>Content</SubType>
+      <Name>AAXProdReportFinishedBusinessEvent</Name>
+      <Link>Classes\AAXProdReportFinishedBusinessEvent</Link>
+    </Content>
+    <Content Include="AxClass\AAXProdReportFinishedBusinessEventContract">
+      <SubType>Content</SubType>
+      <Name>AAXProdReportFinishedBusinessEventContract</Name>
+      <Link>Classes\AAXProdReportFinishedBusinessEventContract</Link>
+    </Content>
+    <Content Include="AxClass\AAXProdRouteCardPostedBusinessEvent">
+      <SubType>Content</SubType>
+      <Name>AAXProdRouteCardPostedBusinessEvent</Name>
+      <Link>Classes\AAXProdRouteCardPostedBusinessEvent</Link>
+    </Content>
+    <Content Include="AxClass\AAXProdRouteCardPostedBusinessEventContract">
+      <SubType>Content</SubType>
+      <Name>AAXProdRouteCardPostedBusinessEventContract</Name>
+      <Link>Classes\AAXProdRouteCardPostedBusinessEventContract</Link>
+    </Content>
+    <Content Include="AxClass\AAXProdTable_Table_Extension">
+      <SubType>Content</SubType>
+      <Name>AAXProdTable_Table_Extension</Name>
+      <Link>Classes\AAXProdTable_Table_Extension</Link>
+    </Content>
+    <Content Include="AxClass\AAXPurchOrderConfirmedBusinessEvent">
+      <SubType>Content</SubType>
+      <Name>AAXPurchOrderConfirmedBusinessEvent</Name>
+      <Link>Classes\AAXPurchOrderConfirmedBusinessEvent</Link>
+    </Content>
+    <Content Include="AxClass\AAXPurchOrderConfirmedBusinessEventContract">
+      <SubType>Content</SubType>
+      <Name>AAXPurchOrderConfirmedBusinessEventContract</Name>
+      <Link>Classes\AAXPurchOrderConfirmedBusinessEventContract</Link>
+    </Content>
+    <Content Include="AxClass\AAXPurchProductReceiptPostedBusinessEvent">
+      <SubType>Content</SubType>
+      <Name>AAXPurchProductReceiptPostedBusinessEvent</Name>
+      <Link>Classes\AAXPurchProductReceiptPostedBusinessEvent</Link>
+    </Content>
+    <Content Include="AxClass\AAXPurchProductReceiptPostedBusinessEventContract">
+      <SubType>Content</SubType>
+      <Name>AAXPurchProductReceiptPostedBusinessEventContract</Name>
+      <Link>Classes\AAXPurchProductReceiptPostedBusinessEventContract</Link>
+    </Content>
+    <Content Include="AxClass\AAXTransferOrderShippedBusinessEvent">
+      <SubType>Content</SubType>
+      <Name>AAXTransferOrderShippedBusinessEvent</Name>
+      <Link>Classes\AAXTransferOrderShippedBusinessEvent</Link>
+    </Content>
+    <Content Include="AxClass\AAXTransferOrderShippedBusinessEventContract">
+      <SubType>Content</SubType>
+      <Name>AAXTransferOrderShippedBusinessEventContract</Name>
+      <Link>Classes\AAXTransferOrderShippedBusinessEventContract</Link>
+    </Content>
     <Content Include="AxClass\AAXVendorCreatedBusinessEvent">
       <SubType>Content</SubType>
       <Name>AAXVendorCreatedBusinessEvent</Name>
@@ -45,6 +160,16 @@
       <Name>AAXVendorCreatedBusinessEventContract</Name>
       <Link>Classes\AAXVendorCreatedBusinessEventContract</Link>
     </Content>
+    <Content Include="AxClass\AAXVendorPaymentPostedBusinessEvent">
+      <SubType>Content</SubType>
+      <Name>AAXVendorPaymentPostedBusinessEvent</Name>
+      <Link>Classes\AAXVendorPaymentPostedBusinessEvent</Link>
+    </Content>
+    <Content Include="AxClass\AAXVendorPaymentPostedBusinessEventContract">
+      <SubType>Content</SubType>
+      <Name>AAXVendorPaymentPostedBusinessEventContract</Name>
+      <Link>Classes\AAXVendorPaymentPostedBusinessEventContract</Link>
+    </Content>
     <Content Include="AxClass\AAXVendorUpdatedBusinessEvent">
       <SubType>Content</SubType>
       <Name>AAXVendorUpdatedBusinessEvent</Name>
@@ -54,6 +179,16 @@
       <SubType>Content</SubType>
       <Name>AAXVendorUpdatedBusinessEventContract</Name>
       <Link>Classes\AAXVendorUpdatedBusinessEventContract</Link>
+    </Content>
+    <Content Include="AxClass\AAXVendPackingSlipJour_Table_Extension">
+      <SubType>Content</SubType>
+      <Name>AAXVendPackingSlipJour_Table_Extension</Name>
+      <Link>Classes\AAXVendPackingSlipJour_Table_Extension</Link>
+    </Content>
+    <Content Include="AxClass\AAXVendPurchOrderJour_Table_Extension">
+      <SubType>Content</SubType>
+      <Name>AAXVendPurchOrderJour_Table_Extension</Name>
+      <Link>Classes\AAXVendPurchOrderJour_Table_Extension</Link>
     </Content>
     <Content Include="AxClass\AAXVendTable_Table_Extension">
       <SubType>Content</SubType>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXCustConfirmJour_Table_Extension</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Extension of <c>CustConfirmJour</c> to trigger the sales order confirmed business event.
+/// </summary>
+[ExtensionOf(tableStr(CustConfirmJour))]
+final class AAXCustConfirmJour_Table_Extension
+{
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>insert</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Triggers the sales order confirmed business event when a confirmation journal is created.
+    /// </summary>
+    void insert()
+    {
+        next insert();
+
+        if (BusinessEventsConfigurationReader::isBusinessEventEnabled(classStr(AAXSalesOrderConfirmedBusinessEvent)))
+        {
+            AAXSalesOrderConfirmedBusinessEvent::newFromCustConfirmJour(this).send();
+        }
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

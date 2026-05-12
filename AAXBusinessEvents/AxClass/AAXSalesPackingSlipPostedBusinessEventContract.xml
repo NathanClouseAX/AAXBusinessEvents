@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXSalesPackingSlipPostedBusinessEventContract</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Data contract for the <c>AAXSalesPackingSlipPostedBusinessEvent</c> business event.
+/// </summary>
+[DataContract]
+public final class AAXSalesPackingSlipPostedBusinessEventContract extends BusinessEventsContract
+{
+    private DataAreaId legalEntity;
+    private SalesId salesOrderId;
+    private CustAccount customerAccount;
+    private PackingSlipId packingSlipId;
+    private TransDate deliveryDate;
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>newFromCustPackingSlipJour</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Creates a new <c>AAXSalesPackingSlipPostedBusinessEventContract</c> from the specified <c>CustPackingSlipJour</c> record.
+    /// </summary>
+    /// <param name="_custPackingSlipJour">The source CustPackingSlipJour record.</param>
+    /// <returns>A new populated instance of <c>AAXSalesPackingSlipPostedBusinessEventContract</c>.</returns>
+    public static AAXSalesPackingSlipPostedBusinessEventContract newFromCustPackingSlipJour(CustPackingSlipJour _custPackingSlipJour)
+    {
+        var contract = new AAXSalesPackingSlipPostedBusinessEventContract();
+        contract.initialize(_custPackingSlipJour);
+
+        return contract;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>initialize</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Initializes the contract fields from the source record.
+    /// </summary>
+    /// <param name="_custPackingSlipJour">The source CustPackingSlipJour record.</param>
+    private void initialize(CustPackingSlipJour _custPackingSlipJour)
+    {
+        legalEntity = _custPackingSlipJour.DataAreaId;
+        salesOrderId = _custPackingSlipJour.SalesId;
+        customerAccount = _custPackingSlipJour.OrderAccount;
+        packingSlipId = _custPackingSlipJour.PackingSlipId;
+        deliveryDate = _custPackingSlipJour.DeliveryDate;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>new</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Private constructor. Use static factory methods to create instances.
+    /// </summary>
+    private void new()
+    {
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmLegalEntity</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the legal entity.
+    /// </summary>
+    /// <param name="_legalEntity">The legal entity value.</param>
+    /// <returns>The legal entity value.</returns>
+    [DataMember('legalEntity'), BusinessEventsDataMember("Legal Entity")]
+    public DataAreaId parmLegalEntity(DataAreaId _legalEntity = legalEntity)
+    {
+        legalEntity = _legalEntity;
+
+        return legalEntity;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmSalesOrderId</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the sales order ID.
+    /// </summary>
+    /// <param name="_salesOrderId">The sales order ID value.</param>
+    /// <returns>The sales order ID value.</returns>
+    [DataMember('salesOrderId'), BusinessEventsDataMember("Sales Order ID")]
+    public SalesId parmSalesOrderId(SalesId _salesOrderId = salesOrderId)
+    {
+        salesOrderId = _salesOrderId;
+
+        return salesOrderId;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmCustomerAccount</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the customer account.
+    /// </summary>
+    /// <param name="_customerAccount">The customer account value.</param>
+    /// <returns>The customer account value.</returns>
+    [DataMember('customerAccount'), BusinessEventsDataMember("Customer Account")]
+    public CustAccount parmCustomerAccount(CustAccount _customerAccount = customerAccount)
+    {
+        customerAccount = _customerAccount;
+
+        return customerAccount;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmPackingSlipId</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the packing slip ID.
+    /// </summary>
+    /// <param name="_packingSlipId">The packing slip ID value.</param>
+    /// <returns>The packing slip ID value.</returns>
+    [DataMember('packingSlipId'), BusinessEventsDataMember("Packing Slip ID")]
+    public PackingSlipId parmPackingSlipId(PackingSlipId _packingSlipId = packingSlipId)
+    {
+        packingSlipId = _packingSlipId;
+
+        return packingSlipId;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmDeliveryDate</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the delivery date.
+    /// </summary>
+    /// <param name="_deliveryDate">The delivery date value.</param>
+    /// <returns>The delivery date value.</returns>
+    [DataMember('deliveryDate'), BusinessEventsDataMember("Delivery Date")]
+    public TransDate parmDeliveryDate(TransDate _deliveryDate = deliveryDate)
+    {
+        deliveryDate = _deliveryDate;
+
+        return deliveryDate;
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

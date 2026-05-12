@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <BuildTasksDirectory Condition=" '$(BuildTasksDirectory)' == ''">$(MSBuildProgramFiles32)\MSBuild\Microsoft\Dynamics\AX</BuildTasksDirectory>
+    <Model>AAXBusinessEvents</Model>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <OutputPath>bin</OutputPath>
+    <SchemaVersion>2.0</SchemaVersion>
+    <GenerateCrossReferences>True</GenerateCrossReferences>
+    <RunAppCheckerRules>False</RunAppCheckerRules>
+    <LogAppcheckerDiagsAsErrors>False</LogAppcheckerDiagsAsErrors>
+    <ProjectGuid>{ef580010-2d77-4933-bfcb-24bbbbe3fd12}</ProjectGuid>
+    <Name>TransferOrderReceivedBusinessEvent</Name>
+    <RootNamespace>TransferOrderReceivedBusinessEvent</RootNamespace>
+    <StartupType>Class</StartupType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <Configuration>Debug</Configuration>
+    <DBSyncInBuild>False</DBSyncInBuild>
+    <GenerateFormAdaptors>False</GenerateFormAdaptors>
+    <Company>
+    </Company>
+    <Partition>initial</Partition>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DataEntityExpandParentChildRelations>False</DataEntityExpandParentChildRelations>
+    <DataEntityUseLabelTextAsFieldName>False</DataEntityUseLabelTextAsFieldName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Classes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AxClass\AAXTransferOrderReceivedBusinessEvent">
+      <SubType>Content</SubType>
+      <Name>AAXTransferOrderReceivedBusinessEvent</Name>
+      <Link>Classes\AAXTransferOrderReceivedBusinessEvent</Link>
+    </Content>
+    <Content Include="AxClass\AAXTransferOrderReceivedBusinessEventContract">
+      <SubType>Content</SubType>
+      <Name>AAXTransferOrderReceivedBusinessEventContract</Name>
+      <Link>Classes\AAXTransferOrderReceivedBusinessEventContract</Link>
+    </Content>
+    <Content Include="AxClass\AAXInventTransferTable_Table_Extension">
+      <SubType>Content</SubType>
+      <Name>AAXInventTransferTable_Table_Extension</Name>
+      <Link>Classes\AAXInventTransferTable_Table_Extension</Link>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.Common.targets" />
+  <Import Project="$(BuildTasksDirectory)\Microsoft.Dynamics.Framework.Tools.BuildTasks.17.0.targets" />
+</Project>

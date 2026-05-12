@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXProdJournalTable_Table_Extension</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Extension of <c>ProdJournalTable</c> to trigger pick list posted and route card posted business events.
+/// </summary>
+[ExtensionOf(tableStr(ProdJournalTable))]
+final class AAXProdJournalTable_Table_Extension
+{
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>update</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Triggers pick list or route card posted business events when a production journal is posted.
+    /// </summary>
+    void update()
+    {
+        boolean wasNotPosted = (this.orig().Posted == NoYes::No);
+
+        next update();
+
+        if (wasNotPosted && this.Posted == NoYes::Yes)
+        {
+            ProdTable prodTable = ProdTable::find(this.ProdId);
+
+            if (this.JournalType == ProdJournalType::Picklist)
+            {
+                if (BusinessEventsConfigurationReader::isBusinessEventEnabled(classStr(AAXProdPickListPostedBusinessEvent)))
+                {
+                    ProdJournalBOM prodJournalBOM;
+                    select sum(BOMConsump) from prodJournalBOM
+                        where prodJournalBOM.JournalId == this.JournalId;
+
+                    AAXProdPickListPostedBusinessEvent::newFromProdTable(prodTable, prodJournalBOM.BOMConsump, 0).send();
+                }
+            }
+            else if (this.JournalType == ProdJournalType::RouteCard)
+            {
+                if (BusinessEventsConfigurationReader::isBusinessEventEnabled(classStr(AAXProdRouteCardPostedBusinessEvent)))
+                {
+                    ProdJournalRoute prodJournalRoute;
+                    select sum(QtyGood), sum(QtyError) from prodJournalRoute
+                        where prodJournalRoute.JournalId == this.JournalId;
+
+                    AAXProdRouteCardPostedBusinessEvent::newFromProdTable(prodTable, prodJournalRoute.QtyGood, prodJournalRoute.QtyError).send();
+                }
+            }
+        }
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

@@ -4,7 +4,7 @@
 	<SourceCode>
 		<Declaration><![CDATA[
 /// <summary>
-/// The data contract for a <c>VendorCreatedBusinessEvent</c>.
+/// Data contract for the <c>AAXVendorCreatedBusinessEvent</c> business event.
 /// </summary>
 [DataContract]
 public final class AAXVendorCreatedBusinessEventContract extends BusinessEventsContract
@@ -19,6 +19,11 @@ public final class AAXVendorCreatedBusinessEventContract extends BusinessEventsC
 			<Method>
 				<Name>newFromVendTable</Name>
 				<Source><![CDATA[
+    /// <summary>
+    /// Creates a new <c>AAXVendorCreatedBusinessEventContract</c> from the specified <c>VendTable</c> record.
+    /// </summary>
+    /// <param name="_vendTable">The source VendTable record.</param>
+    /// <returns>A new populated instance of <c>AAXVendorCreatedBusinessEventContract</c>.</returns>
     public static AAXVendorCreatedBusinessEventContract newFromVendTable(VendTable _vendTable)
     {
         var contract = new AAXVendorCreatedBusinessEventContract();
@@ -32,6 +37,10 @@ public final class AAXVendorCreatedBusinessEventContract extends BusinessEventsC
 			<Method>
 				<Name>initialize</Name>
 				<Source><![CDATA[
+    /// <summary>
+    /// Initializes the contract fields from the source record.
+    /// </summary>
+    /// <param name="_vendTable">The source VendTable record.</param>
     private void initialize(VendTable _vendTable)
     {
         vendorLegalEntity = _vendTable.DataAreaId;
@@ -44,6 +53,9 @@ public final class AAXVendorCreatedBusinessEventContract extends BusinessEventsC
 			<Method>
 				<Name>new</Name>
 				<Source><![CDATA[
+    /// <summary>
+    /// Private constructor. Use static factory methods to create instances.
+    /// </summary>
     private void new()
     {
     }
@@ -53,6 +65,11 @@ public final class AAXVendorCreatedBusinessEventContract extends BusinessEventsC
 			<Method>
 				<Name>parmVendorParty</Name>
 				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the vendor party.
+    /// </summary>
+    /// <param name="_vendorParty">The vendor party value.</param>
+    /// <returns>The vendor party value.</returns>
     [DataMember('vendorParty'), BusinessEventsDataMember("Vendor Party")]
     public DirPartyRecId parmVendorParty(DirPartyRecId _vendorParty = vendorParty)
     {
@@ -66,6 +83,11 @@ public final class AAXVendorCreatedBusinessEventContract extends BusinessEventsC
 			<Method>
 				<Name>parmVendorAccountNumber</Name>
 				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the vendor account number.
+    /// </summary>
+    /// <param name="_vendorAccountNumber">The vendor account number value.</param>
+    /// <returns>The vendor account number value.</returns>
     [DataMember('vendorAccountNumber'), BusinessEventsDataMember("Vendor Account Number")]
     public VendAccount parmVendorAccountNumber(VendAccount _vendorAccountNumber = vendorAccountNumber)
     {
@@ -79,6 +101,11 @@ public final class AAXVendorCreatedBusinessEventContract extends BusinessEventsC
 			<Method>
 				<Name>parmVendorLegalEntity</Name>
 				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the vendor legal entity.
+    /// </summary>
+    /// <param name="_vendorLegalEntity">The vendor legal entity value.</param>
+    /// <returns>The vendor legal entity value.</returns>
     [DataMember('vendorLegalEntity'), BusinessEventsDataMember("Vendor Legal Entity")]
     public DataAreaId parmVendorLegalEntity(DataAreaId _vendorLegalEntity = vendorLegalEntity)
     {

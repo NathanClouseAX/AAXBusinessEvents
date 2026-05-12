@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXFixedAssetAcquisitionPostedBusinessEventContract</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Data contract for the <c>AAXFixedAssetAcquisitionPostedBusinessEvent</c> business event.
+/// </summary>
+[DataContract]
+public final class AAXFixedAssetAcquisitionPostedBusinessEventContract extends BusinessEventsContract
+{
+    private DataAreaId legalEntity;
+    private AssetId assetId;
+    private AssetBookId bookId;
+    private AmountMST acquisitionAmount;
+    private TransDate transDate;
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>newFromAssetTrans</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Creates a new <c>AAXFixedAssetAcquisitionPostedBusinessEventContract</c> from the specified <c>AssetTrans</c> record.
+    /// </summary>
+    /// <param name="_assetTrans">The source AssetTrans record.</param>
+    /// <returns>A new populated instance of <c>AAXFixedAssetAcquisitionPostedBusinessEventContract</c>.</returns>
+    public static AAXFixedAssetAcquisitionPostedBusinessEventContract newFromAssetTrans(AssetTrans _assetTrans)
+    {
+        var contract = new AAXFixedAssetAcquisitionPostedBusinessEventContract();
+        contract.initialize(_assetTrans);
+
+        return contract;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>initialize</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Initializes the contract fields from the source record.
+    /// </summary>
+    /// <param name="_assetTrans">The source AssetTrans record.</param>
+    private void initialize(AssetTrans _assetTrans)
+    {
+        legalEntity = _assetTrans.DataAreaId;
+        assetId = _assetTrans.AssetId;
+        bookId = _assetTrans.BookId;
+        acquisitionAmount = _assetTrans.AmountMST;
+        transDate = _assetTrans.TransDate;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>new</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Private constructor. Use static factory methods to create instances.
+    /// </summary>
+    private void new()
+    {
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmLegalEntity</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the legal entity.
+    /// </summary>
+    /// <param name="_legalEntity">The legal entity value.</param>
+    /// <returns>The legal entity value.</returns>
+    [DataMember('legalEntity'), BusinessEventsDataMember("Legal Entity")]
+    public DataAreaId parmLegalEntity(DataAreaId _legalEntity = legalEntity)
+    {
+        legalEntity = _legalEntity;
+
+        return legalEntity;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmAssetId</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the asset ID.
+    /// </summary>
+    /// <param name="_assetId">The asset ID value.</param>
+    /// <returns>The asset ID value.</returns>
+    [DataMember('assetId'), BusinessEventsDataMember("Asset ID")]
+    public AssetId parmAssetId(AssetId _assetId = assetId)
+    {
+        assetId = _assetId;
+
+        return assetId;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmBookId</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the book ID.
+    /// </summary>
+    /// <param name="_bookId">The book ID value.</param>
+    /// <returns>The book ID value.</returns>
+    [DataMember('bookId'), BusinessEventsDataMember("Book ID")]
+    public AssetBookId parmBookId(AssetBookId _bookId = bookId)
+    {
+        bookId = _bookId;
+
+        return bookId;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmAcquisitionAmount</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the acquisition amount.
+    /// </summary>
+    /// <param name="_acquisitionAmount">The acquisition amount value.</param>
+    /// <returns>The acquisition amount value.</returns>
+    [DataMember('acquisitionAmount'), BusinessEventsDataMember("Acquisition Amount")]
+    public AmountMST parmAcquisitionAmount(AmountMST _acquisitionAmount = acquisitionAmount)
+    {
+        acquisitionAmount = _acquisitionAmount;
+
+        return acquisitionAmount;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmTransDate</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the transaction date.
+    /// </summary>
+    /// <param name="_transDate">The transaction date value.</param>
+    /// <returns>The transaction date value.</returns>
+    [DataMember('transDate'), BusinessEventsDataMember("Transaction Date")]
+    public TransDate parmTransDate(TransDate _transDate = transDate)
+    {
+        transDate = _transDate;
+
+        return transDate;
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

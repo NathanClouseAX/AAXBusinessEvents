@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXSalesTable_Table_Extension</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Extension of <c>SalesTable</c> to trigger the sales return order created business event.
+/// </summary>
+[ExtensionOf(tableStr(SalesTable))]
+final class AAXSalesTable_Table_Extension
+{
+    /// <summary>
+    /// Triggers the sales return order created business event when a return order is created.
+    /// </summary>
+    //TODO rig up to SalesTableType_ReturnItem
+    //void insert()
+    //{
+    //    next insert();
+
+    //    if (this.SalesType == SalesType::ReturnItem)
+    //    {
+    //        if (BusinessEventsConfigurationReader::isBusinessEventEnabled(classStr(AAXSalesReturnOrderCreatedBusinessEvent)))
+    //        {
+    //            AAXSalesReturnOrderCreatedBusinessEvent::newFromSalesTable(this).send();
+    //        }
+    //    }
+    //}
+
+}
+]]></Declaration>
+		<Methods />
+	</SourceCode>
+</AxClass>

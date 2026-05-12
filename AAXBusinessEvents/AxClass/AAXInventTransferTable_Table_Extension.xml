@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXInventTransferTable_Table_Extension</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Extension of <c>InventTransferTable</c> to trigger transfer order shipped and transfer order received business events.
+/// </summary>
+[ExtensionOf(tableStr(InventTransferTable))]
+final class AAXInventTransferTable_Table_Extension
+{
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>update</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Triggers transfer order shipped or received business events when the transfer status changes.
+    /// </summary>
+    void update()
+    {
+        InventTransferStatus origStatus = this.orig().TransferStatus;
+
+        next update();
+
+        if (origStatus != this.TransferStatus)
+        {
+            switch (this.TransferStatus)
+            {
+                case InventTransferStatus::Shipped:
+                    if (BusinessEventsConfigurationReader::isBusinessEventEnabled(classStr(AAXTransferOrderShippedBusinessEvent)))
+                    {
+                        AAXTransferOrderShippedBusinessEvent::newFromInventTransferTable(this).send();
+                    }
+                    break;
+
+                case InventTransferStatus::Received:
+                    if (BusinessEventsConfigurationReader::isBusinessEventEnabled(classStr(AAXTransferOrderReceivedBusinessEvent)))
+                    {
+                        AAXTransferOrderReceivedBusinessEvent::newFromInventTransferTable(this).send();
+                    }
+                    break;
+            }
+        }
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXSalesOrderConfirmedBusinessEvent</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Business event triggered when a sales order confirmation is posted.
+/// </summary>
+[BusinessEvents(classStr(AAXSalesOrderConfirmedBusinessEventContract), 'SalesOrderConfirmedBusinessEventName', 'SalesOrderConfirmedBusinessEventDescription', ModuleAxapta::SalesOrder)]
+public final class AAXSalesOrderConfirmedBusinessEvent extends BusinessEventsBase
+{
+    private CustConfirmJour custConfirmJour;
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>parmCustConfirmJour</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the source CustConfirmJour for building the event contract.
+    /// </summary>
+    private CustConfirmJour parmCustConfirmJour(CustConfirmJour _custConfirmJour = custConfirmJour)
+    {
+        custConfirmJour = _custConfirmJour;
+
+        return custConfirmJour;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>newFromCustConfirmJour</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Creates a new <c>AAXSalesOrderConfirmedBusinessEvent</c> instance from the specified <c>CustConfirmJour</c> record.
+    /// </summary>
+    /// <param name="_custConfirmJour">The source CustConfirmJour record.</param>
+    /// <returns>A new instance of <c>AAXSalesOrderConfirmedBusinessEvent</c>.</returns>
+    public static AAXSalesOrderConfirmedBusinessEvent newFromCustConfirmJour(CustConfirmJour _custConfirmJour)
+    {
+        AAXSalesOrderConfirmedBusinessEvent businessEvent = new AAXSalesOrderConfirmedBusinessEvent();
+        businessEvent.parmCustConfirmJour(_custConfirmJour);
+
+        return businessEvent;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>new</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Private constructor. Use static factory methods to create instances.
+    /// </summary>
+    private void new()
+    {
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>buildContract</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Builds the data contract for this business event.
+    /// </summary>
+    /// <returns>The populated <c>AAXSalesOrderConfirmedBusinessEventContract</c>.</returns>
+    [Wrappable(true), Replaceable(true)]
+    public BusinessEventsContract buildContract()
+    {
+        return AAXSalesOrderConfirmedBusinessEventContract::newFromCustConfirmJour(custConfirmJour);
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

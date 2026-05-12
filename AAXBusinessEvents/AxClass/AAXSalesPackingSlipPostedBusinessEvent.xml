@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXSalesPackingSlipPostedBusinessEvent</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Business event triggered when a sales packing slip is posted.
+/// </summary>
+[BusinessEvents(classStr(AAXSalesPackingSlipPostedBusinessEventContract), 'SalesPackingSlipPostedBusinessEventName', 'SalesPackingSlipPostedBusinessEventDescription', ModuleAxapta::SalesOrder)]
+public final class AAXSalesPackingSlipPostedBusinessEvent extends BusinessEventsBase
+{
+    private CustPackingSlipJour custPackingSlipJour;
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>parmCustPackingSlipJour</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the source CustPackingSlipJour for building the event contract.
+    /// </summary>
+    private CustPackingSlipJour parmCustPackingSlipJour(CustPackingSlipJour _custPackingSlipJour = custPackingSlipJour)
+    {
+        custPackingSlipJour = _custPackingSlipJour;
+
+        return custPackingSlipJour;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>newFromCustPackingSlipJour</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Creates a new <c>AAXSalesPackingSlipPostedBusinessEvent</c> instance from the specified <c>CustPackingSlipJour</c> record.
+    /// </summary>
+    /// <param name="_custPackingSlipJour">The source CustPackingSlipJour record.</param>
+    /// <returns>A new instance of <c>AAXSalesPackingSlipPostedBusinessEvent</c>.</returns>
+    public static AAXSalesPackingSlipPostedBusinessEvent newFromCustPackingSlipJour(CustPackingSlipJour _custPackingSlipJour)
+    {
+        AAXSalesPackingSlipPostedBusinessEvent businessEvent = new AAXSalesPackingSlipPostedBusinessEvent();
+        businessEvent.parmCustPackingSlipJour(_custPackingSlipJour);
+
+        return businessEvent;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>new</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Private constructor. Use static factory methods to create instances.
+    /// </summary>
+    private void new()
+    {
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>buildContract</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Builds the data contract for this business event.
+    /// </summary>
+    /// <returns>The populated <c>AAXSalesPackingSlipPostedBusinessEventContract</c>.</returns>
+    [Wrappable(true), Replaceable(true)]
+    public BusinessEventsContract buildContract()
+    {
+        return AAXSalesPackingSlipPostedBusinessEventContract::newFromCustPackingSlipJour(custPackingSlipJour);
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

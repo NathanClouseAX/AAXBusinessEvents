@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXPurchReturnOrderCreatedBusinessEventContract</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Data contract for the <c>AAXPurchReturnOrderCreatedBusinessEvent</c> business event.
+/// </summary>
+[DataContract]
+public final class AAXPurchReturnOrderCreatedBusinessEventContract extends BusinessEventsContract
+{
+    private DataAreaId legalEntity;
+    private PurchId returnOrderId;
+    private VendAccount vendorAccount;
+    private ReturnReasonCodeId returnReasonCodeId;
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>newFromPurchTable</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Creates a new <c>AAXPurchReturnOrderCreatedBusinessEventContract</c> from the specified <c>PurchTable</c> record.
+    /// </summary>
+    /// <param name="_purchTable">The source PurchTable record.</param>
+    /// <returns>A new populated instance of <c>AAXPurchReturnOrderCreatedBusinessEventContract</c>.</returns>
+    public static AAXPurchReturnOrderCreatedBusinessEventContract newFromPurchTable(PurchTable _purchTable)
+    {
+        var contract = new AAXPurchReturnOrderCreatedBusinessEventContract();
+        contract.initialize(_purchTable);
+
+        return contract;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>initialize</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Initializes the contract fields from the source record.
+    /// </summary>
+    /// <param name="_purchTable">The source PurchTable record.</param>
+    private void initialize(PurchTable _purchTable)
+    {
+        legalEntity = _purchTable.DataAreaId;
+        returnOrderId = _purchTable.PurchId;
+        vendorAccount = _purchTable.OrderAccount;
+        returnReasonCodeId = _purchTable.ReturnReasonCodeId;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>new</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Private constructor. Use static factory methods to create instances.
+    /// </summary>
+    private void new()
+    {
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmLegalEntity</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the legal entity.
+    /// </summary>
+    /// <param name="_legalEntity">The legal entity value.</param>
+    /// <returns>The legal entity value.</returns>
+    [DataMember('legalEntity'), BusinessEventsDataMember("Legal Entity")]
+    public DataAreaId parmLegalEntity(DataAreaId _legalEntity = legalEntity)
+    {
+        legalEntity = _legalEntity;
+
+        return legalEntity;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmReturnOrderId</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the return order ID.
+    /// </summary>
+    /// <param name="_returnOrderId">The return order ID value.</param>
+    /// <returns>The return order ID value.</returns>
+    [DataMember('returnOrderId'), BusinessEventsDataMember("Return Order ID")]
+    public PurchId parmReturnOrderId(PurchId _returnOrderId = returnOrderId)
+    {
+        returnOrderId = _returnOrderId;
+
+        return returnOrderId;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmVendorAccount</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the vendor account.
+    /// </summary>
+    /// <param name="_vendorAccount">The vendor account value.</param>
+    /// <returns>The vendor account value.</returns>
+    [DataMember('vendorAccount'), BusinessEventsDataMember("Vendor Account")]
+    public VendAccount parmVendorAccount(VendAccount _vendorAccount = vendorAccount)
+    {
+        vendorAccount = _vendorAccount;
+
+        return vendorAccount;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmReturnReasonCodeId</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the return reason code.
+    /// </summary>
+    /// <param name="_returnReasonCodeId">The return reason code value.</param>
+    /// <returns>The return reason code value.</returns>
+    [DataMember('returnReasonCodeId'), BusinessEventsDataMember("Return Reason Code")]
+    public ReturnReasonCodeId parmReturnReasonCodeId(ReturnReasonCodeId _returnReasonCodeId = returnReasonCodeId)
+    {
+        returnReasonCodeId = _returnReasonCodeId;
+
+        return returnReasonCodeId;
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

@@ -3,6 +3,9 @@
 	<Name>AAXVendTable_Table_Extension</Name>
 	<SourceCode>
 		<Declaration><![CDATA[
+/// <summary>
+/// Extension of <c>VendTable</c> to trigger vendor created and vendor updated business events.
+/// </summary>
 [ExtensionOf(tableStr(VendTable))]
 final class AAXVendTable_Table_Extension
 {
@@ -12,6 +15,9 @@ final class AAXVendTable_Table_Extension
 			<Method>
 				<Name>insert</Name>
 				<Source><![CDATA[
+    /// <summary>
+    /// Triggers the vendor created business event when a new vendor is created.
+    /// </summary>
     void insert()
     {        
         next insert();
@@ -26,6 +32,9 @@ final class AAXVendTable_Table_Extension
 			<Method>
 				<Name>update</Name>
 				<Source><![CDATA[
+    /// <summary>
+    /// Triggers the vendor updated business event when a vendor record is modified.
+    /// </summary>
     void update(boolean _updateSmmBusRelTable, boolean _updateParty)
     {
         next update(_updateSmmBusRelTable, _updateParty);

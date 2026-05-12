@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXTransferOrderShippedBusinessEventContract</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Data contract for the <c>AAXTransferOrderShippedBusinessEvent</c> business event.
+/// </summary>
+[DataContract]
+public final class AAXTransferOrderShippedBusinessEventContract extends BusinessEventsContract
+{
+    private DataAreaId legalEntity;
+    private InventTransferId transferOrderId;
+    private InventLocationId fromWarehouse;
+    private InventLocationId toWarehouse;
+    private int transferStatus;
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>newFromInventTransferTable</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Creates a new <c>AAXTransferOrderShippedBusinessEventContract</c> from the specified <c>InventTransferTable</c> record.
+    /// </summary>
+    /// <param name="_inventTransferTable">The source InventTransferTable record.</param>
+    /// <returns>A new populated instance of <c>AAXTransferOrderShippedBusinessEventContract</c>.</returns>
+    public static AAXTransferOrderShippedBusinessEventContract newFromInventTransferTable(InventTransferTable _inventTransferTable)
+    {
+        var contract = new AAXTransferOrderShippedBusinessEventContract();
+        contract.initialize(_inventTransferTable);
+
+        return contract;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>initialize</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Initializes the contract fields from the source record.
+    /// </summary>
+    /// <param name="_inventTransferTable">The source InventTransferTable record.</param>
+    private void initialize(InventTransferTable _inventTransferTable)
+    {
+        legalEntity = _inventTransferTable.DataAreaId;
+        transferOrderId = _inventTransferTable.TransferId;
+        fromWarehouse = _inventTransferTable.InventLocationIdFrom;
+        toWarehouse = _inventTransferTable.InventLocationIdTo;
+        transferStatus = enum2int(_inventTransferTable.TransferStatus);
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>new</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Private constructor. Use static factory methods to create instances.
+    /// </summary>
+    private void new()
+    {
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmLegalEntity</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the legal entity.
+    /// </summary>
+    /// <param name="_legalEntity">The legal entity value.</param>
+    /// <returns>The legal entity value.</returns>
+    [DataMember('legalEntity'), BusinessEventsDataMember("Legal Entity")]
+    public DataAreaId parmLegalEntity(DataAreaId _legalEntity = legalEntity)
+    {
+        legalEntity = _legalEntity;
+
+        return legalEntity;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmTransferOrderId</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the transfer order ID.
+    /// </summary>
+    /// <param name="_transferOrderId">The transfer order ID value.</param>
+    /// <returns>The transfer order ID value.</returns>
+    [DataMember('transferOrderId'), BusinessEventsDataMember("Transfer Order ID")]
+    public InventTransferId parmTransferOrderId(InventTransferId _transferOrderId = transferOrderId)
+    {
+        transferOrderId = _transferOrderId;
+
+        return transferOrderId;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmFromWarehouse</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the from warehouse.
+    /// </summary>
+    /// <param name="_fromWarehouse">The from warehouse value.</param>
+    /// <returns>The from warehouse value.</returns>
+    [DataMember('fromWarehouse'), BusinessEventsDataMember("From Warehouse")]
+    public InventLocationId parmFromWarehouse(InventLocationId _fromWarehouse = fromWarehouse)
+    {
+        fromWarehouse = _fromWarehouse;
+
+        return fromWarehouse;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmToWarehouse</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the to warehouse.
+    /// </summary>
+    /// <param name="_toWarehouse">The to warehouse value.</param>
+    /// <returns>The to warehouse value.</returns>
+    [DataMember('toWarehouse'), BusinessEventsDataMember("To Warehouse")]
+    public InventLocationId parmToWarehouse(InventLocationId _toWarehouse = toWarehouse)
+    {
+        toWarehouse = _toWarehouse;
+
+        return toWarehouse;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmTransferStatus</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the transfer status.
+    /// </summary>
+    /// <param name="_transferStatus">The transfer status value.</param>
+    /// <returns>The transfer status value.</returns>
+    [DataMember('transferStatus'), BusinessEventsDataMember("Transfer Status")]
+    public int parmTransferStatus(int _transferStatus = transferStatus)
+    {
+        transferStatus = _transferStatus;
+
+        return transferStatus;
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

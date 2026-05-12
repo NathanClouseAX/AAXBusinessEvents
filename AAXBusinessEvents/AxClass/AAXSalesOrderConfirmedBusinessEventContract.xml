@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXSalesOrderConfirmedBusinessEventContract</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Data contract for the <c>AAXSalesOrderConfirmedBusinessEvent</c> business event.
+/// </summary>
+[DataContract]
+public final class AAXSalesOrderConfirmedBusinessEventContract extends BusinessEventsContract
+{
+    private DataAreaId legalEntity;
+    private SalesId salesOrderId;
+    private CustAccount customerAccount;
+    private ConfirmId confirmId;
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>newFromCustConfirmJour</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Creates a new <c>AAXSalesOrderConfirmedBusinessEventContract</c> from the specified <c>CustConfirmJour</c> record.
+    /// </summary>
+    /// <param name="_custConfirmJour">The source CustConfirmJour record.</param>
+    /// <returns>A new populated instance of <c>AAXSalesOrderConfirmedBusinessEventContract</c>.</returns>
+    public static AAXSalesOrderConfirmedBusinessEventContract newFromCustConfirmJour(CustConfirmJour _custConfirmJour)
+    {
+        var contract = new AAXSalesOrderConfirmedBusinessEventContract();
+        contract.initialize(_custConfirmJour);
+
+        return contract;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>initialize</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Initializes the contract fields from the source record.
+    /// </summary>
+    /// <param name="_custConfirmJour">The source CustConfirmJour record.</param>
+    private void initialize(CustConfirmJour _custConfirmJour)
+    {
+        legalEntity = _custConfirmJour.DataAreaId;
+        salesOrderId = _custConfirmJour.SalesId;
+        customerAccount = _custConfirmJour.OrderAccount;
+        confirmId = _custConfirmJour.ConfirmId;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>new</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Private constructor. Use static factory methods to create instances.
+    /// </summary>
+    private void new()
+    {
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmLegalEntity</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the legal entity.
+    /// </summary>
+    /// <param name="_legalEntity">The legal entity value.</param>
+    /// <returns>The legal entity value.</returns>
+    [DataMember('legalEntity'), BusinessEventsDataMember("Legal Entity")]
+    public DataAreaId parmLegalEntity(DataAreaId _legalEntity = legalEntity)
+    {
+        legalEntity = _legalEntity;
+
+        return legalEntity;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmSalesOrderId</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the sales order ID.
+    /// </summary>
+    /// <param name="_salesOrderId">The sales order ID value.</param>
+    /// <returns>The sales order ID value.</returns>
+    [DataMember('salesOrderId'), BusinessEventsDataMember("Sales Order ID")]
+    public SalesId parmSalesOrderId(SalesId _salesOrderId = salesOrderId)
+    {
+        salesOrderId = _salesOrderId;
+
+        return salesOrderId;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmCustomerAccount</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the customer account.
+    /// </summary>
+    /// <param name="_customerAccount">The customer account value.</param>
+    /// <returns>The customer account value.</returns>
+    [DataMember('customerAccount'), BusinessEventsDataMember("Customer Account")]
+    public CustAccount parmCustomerAccount(CustAccount _customerAccount = customerAccount)
+    {
+        customerAccount = _customerAccount;
+
+        return customerAccount;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmConfirmId</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the confirmation ID.
+    /// </summary>
+    /// <param name="_confirmId">The confirmation ID value.</param>
+    /// <returns>The confirmation ID value.</returns>
+    [DataMember('confirmId'), BusinessEventsDataMember("Confirmation ID")]
+    public ConfirmId parmConfirmId(ConfirmId _confirmId = confirmId)
+    {
+        confirmId = _confirmId;
+
+        return confirmId;
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

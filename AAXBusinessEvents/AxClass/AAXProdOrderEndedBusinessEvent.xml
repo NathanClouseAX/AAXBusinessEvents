@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXProdOrderEndedBusinessEvent</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Business event triggered when a production order is ended.
+/// </summary>
+[BusinessEvents(classStr(AAXProdOrderEndedBusinessEventContract), 'ProdOrderEndedBusinessEventName', 'ProdOrderEndedBusinessEventDescription', ModuleAxapta::Production)]
+public final class AAXProdOrderEndedBusinessEvent extends BusinessEventsBase
+{
+    private ProdTable prodTable;
+    private real goodQuantity;
+    private real errorQuantity;
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>parmProdTable</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the source ProdTable for building the event contract.
+    /// </summary>
+    private ProdTable parmProdTable(ProdTable _prodTable = prodTable)
+    {
+        prodTable = _prodTable;
+
+        return prodTable;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmGoodQuantity</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the good quantity for building the event contract.
+    /// </summary>
+    private real parmGoodQuantity(real _goodQuantity = goodQuantity)
+    {
+        goodQuantity = _goodQuantity;
+
+        return goodQuantity;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmErrorQuantity</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the error quantity for building the event contract.
+    /// </summary>
+    private real parmErrorQuantity(real _errorQuantity = errorQuantity)
+    {
+        errorQuantity = _errorQuantity;
+
+        return errorQuantity;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>newFromProdTable</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Creates a new <c>AAXProdOrderEndedBusinessEvent</c> instance from the specified <c>ProdTable</c> record.
+    /// </summary>
+    /// <param name="_prodTable">The source ProdTable record.</param>
+    /// <param name="_goodQuantity">The good quantity reported.</param>
+    /// <param name="_errorQuantity">The error quantity reported.</param>
+    /// <returns>A new instance of <c>AAXProdOrderEndedBusinessEvent</c>.</returns>
+    public static AAXProdOrderEndedBusinessEvent newFromProdTable(ProdTable _prodTable, real _goodQuantity, real _errorQuantity)
+    {
+        AAXProdOrderEndedBusinessEvent businessEvent = new AAXProdOrderEndedBusinessEvent();
+        businessEvent.parmProdTable(_prodTable);
+        businessEvent.parmGoodQuantity(_goodQuantity);
+        businessEvent.parmErrorQuantity(_errorQuantity);
+
+        return businessEvent;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>new</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Private constructor. Use static factory methods to create instances.
+    /// </summary>
+    private void new()
+    {
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>buildContract</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Builds the data contract for this business event.
+    /// </summary>
+    /// <returns>The populated <c>AAXProdOrderEndedBusinessEventContract</c>.</returns>
+    [Wrappable(true), Replaceable(true)]
+    public BusinessEventsContract buildContract()
+    {
+        return AAXProdOrderEndedBusinessEventContract::newFromProdTable(prodTable, goodQuantity, errorQuantity);
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

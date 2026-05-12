@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXProdOrderEstimatedBusinessEventContract</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Data contract for the <c>AAXProdOrderEstimatedBusinessEvent</c> business event.
+/// </summary>
+[DataContract]
+public final class AAXProdOrderEstimatedBusinessEventContract extends BusinessEventsContract
+{
+    private DataAreaId legalEntity;
+    private ProdId productionOrderId;
+    private ItemId itemId;
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>newFromProdTable</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Creates a new <c>AAXProdOrderEstimatedBusinessEventContract</c> from the specified <c>ProdTable</c> record.
+    /// </summary>
+    /// <param name="_prodTable">The source ProdTable record.</param>
+    /// <returns>A new populated instance of <c>AAXProdOrderEstimatedBusinessEventContract</c>.</returns>
+    public static AAXProdOrderEstimatedBusinessEventContract newFromProdTable(ProdTable _prodTable)
+    {
+        var contract = new AAXProdOrderEstimatedBusinessEventContract();
+        contract.initialize(_prodTable);
+
+        return contract;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>initialize</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Initializes the contract fields from the source record.
+    /// </summary>
+    /// <param name="_prodTable">The source ProdTable record.</param>
+    private void initialize(ProdTable _prodTable)
+    {
+        legalEntity = _prodTable.DataAreaId;
+        productionOrderId = _prodTable.ProdId;
+        itemId = _prodTable.ItemId;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>new</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Private constructor. Use static factory methods to create instances.
+    /// </summary>
+    private void new()
+    {
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmLegalEntity</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the legal entity.
+    /// </summary>
+    /// <param name="_legalEntity">The legal entity value.</param>
+    /// <returns>The legal entity value.</returns>
+    [DataMember('legalEntity'), BusinessEventsDataMember("Legal Entity")]
+    public DataAreaId parmLegalEntity(DataAreaId _legalEntity = legalEntity)
+    {
+        legalEntity = _legalEntity;
+
+        return legalEntity;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmProductionOrderId</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the production order ID.
+    /// </summary>
+    /// <param name="_productionOrderId">The production order ID value.</param>
+    /// <returns>The production order ID value.</returns>
+    [DataMember('productionOrderId'), BusinessEventsDataMember("Production Order ID")]
+    public ProdId parmProductionOrderId(ProdId _productionOrderId = productionOrderId)
+    {
+        productionOrderId = _productionOrderId;
+
+        return productionOrderId;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmItemId</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the item number.
+    /// </summary>
+    /// <param name="_itemId">The item number value.</param>
+    /// <returns>The item number value.</returns>
+    [DataMember('itemId'), BusinessEventsDataMember("Item Number")]
+    public ItemId parmItemId(ItemId _itemId = itemId)
+    {
+        itemId = _itemId;
+
+        return itemId;
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXFreeTextInvoicePostedBusinessEventContract</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Data contract for the <c>AAXFreeTextInvoicePostedBusinessEvent</c> business event.
+/// </summary>
+[DataContract]
+public final class AAXFreeTextInvoicePostedBusinessEventContract extends BusinessEventsContract
+{
+    private DataAreaId legalEntity;
+    private InvoiceId invoiceId;
+    private CustAccount customerAccount;
+    private InvoiceDate invoiceDate;
+    private AmountMST invoiceAmount;
+    private CurrencyCode currencyCode;
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>newFromCustInvoiceJour</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Creates a new <c>AAXFreeTextInvoicePostedBusinessEventContract</c> from the specified <c>CustInvoiceJour</c> record.
+    /// </summary>
+    /// <param name="_custInvoiceJour">The source CustInvoiceJour record.</param>
+    /// <returns>A new populated instance of <c>AAXFreeTextInvoicePostedBusinessEventContract</c>.</returns>
+    public static AAXFreeTextInvoicePostedBusinessEventContract newFromCustInvoiceJour(CustInvoiceJour _custInvoiceJour)
+    {
+        var contract = new AAXFreeTextInvoicePostedBusinessEventContract();
+        contract.initialize(_custInvoiceJour);
+
+        return contract;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>initialize</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Initializes the contract fields from the source record.
+    /// </summary>
+    /// <param name="_custInvoiceJour">The source CustInvoiceJour record.</param>
+    private void initialize(CustInvoiceJour _custInvoiceJour)
+    {
+        legalEntity = _custInvoiceJour.DataAreaId;
+        invoiceId = _custInvoiceJour.InvoiceId;
+        customerAccount = _custInvoiceJour.InvoiceAccount;
+        invoiceDate = _custInvoiceJour.InvoiceDate;
+        invoiceAmount = _custInvoiceJour.InvoiceAmountMST;
+        currencyCode = _custInvoiceJour.CurrencyCode;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>new</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Private constructor. Use static factory methods to create instances.
+    /// </summary>
+    private void new()
+    {
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmLegalEntity</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the legal entity.
+    /// </summary>
+    /// <param name="_legalEntity">The legal entity value.</param>
+    /// <returns>The legal entity value.</returns>
+    [DataMember('legalEntity'), BusinessEventsDataMember("Legal Entity")]
+    public DataAreaId parmLegalEntity(DataAreaId _legalEntity = legalEntity)
+    {
+        legalEntity = _legalEntity;
+
+        return legalEntity;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmInvoiceId</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the invoice ID.
+    /// </summary>
+    /// <param name="_invoiceId">The invoice ID value.</param>
+    /// <returns>The invoice ID value.</returns>
+    [DataMember('invoiceId'), BusinessEventsDataMember("Invoice ID")]
+    public InvoiceId parmInvoiceId(InvoiceId _invoiceId = invoiceId)
+    {
+        invoiceId = _invoiceId;
+
+        return invoiceId;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmCustomerAccount</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the customer account.
+    /// </summary>
+    /// <param name="_customerAccount">The customer account value.</param>
+    /// <returns>The customer account value.</returns>
+    [DataMember('customerAccount'), BusinessEventsDataMember("Customer Account")]
+    public CustAccount parmCustomerAccount(CustAccount _customerAccount = customerAccount)
+    {
+        customerAccount = _customerAccount;
+
+        return customerAccount;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmInvoiceDate</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the invoice date.
+    /// </summary>
+    /// <param name="_invoiceDate">The invoice date value.</param>
+    /// <returns>The invoice date value.</returns>
+    [DataMember('invoiceDate'), BusinessEventsDataMember("Invoice Date")]
+    public InvoiceDate parmInvoiceDate(InvoiceDate _invoiceDate = invoiceDate)
+    {
+        invoiceDate = _invoiceDate;
+
+        return invoiceDate;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmInvoiceAmount</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the invoice amount.
+    /// </summary>
+    /// <param name="_invoiceAmount">The invoice amount value.</param>
+    /// <returns>The invoice amount value.</returns>
+    [DataMember('invoiceAmount'), BusinessEventsDataMember("Invoice Amount")]
+    public AmountMST parmInvoiceAmount(AmountMST _invoiceAmount = invoiceAmount)
+    {
+        invoiceAmount = _invoiceAmount;
+
+        return invoiceAmount;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmCurrencyCode</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the currency code.
+    /// </summary>
+    /// <param name="_currencyCode">The currency code value.</param>
+    /// <returns>The currency code value.</returns>
+    [DataMember('currencyCode'), BusinessEventsDataMember("Currency Code")]
+    public CurrencyCode parmCurrencyCode(CurrencyCode _currencyCode = currencyCode)
+    {
+        currencyCode = _currencyCode;
+
+        return currencyCode;
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

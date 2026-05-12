@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXInventClosingCompletedBusinessEventContract</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Data contract for the <c>AAXInventClosingCompletedBusinessEvent</c> business event.
+/// </summary>
+[DataContract]
+public final class AAXInventClosingCompletedBusinessEventContract extends BusinessEventsContract
+{
+    private DataAreaId legalEntity;
+    private TransDate closingDate;
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>construct</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Creates a new <c>AAXInventClosingCompletedBusinessEventContract</c> from the specified closing date.
+    /// </summary>
+    /// <param name="_closingDate">The closing date value.</param>
+    /// <returns>A new populated instance of <c>AAXInventClosingCompletedBusinessEventContract</c>.</returns>
+    public static AAXInventClosingCompletedBusinessEventContract construct(TransDate _closingDate)
+    {
+        var contract = new AAXInventClosingCompletedBusinessEventContract();
+        contract.parmLegalEntity(curExt());
+        contract.parmClosingDate(_closingDate);
+
+        return contract;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>new</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Private constructor. Use static factory methods to create instances.
+    /// </summary>
+    private void new()
+    {
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmLegalEntity</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the legal entity.
+    /// </summary>
+    /// <param name="_legalEntity">The legal entity value.</param>
+    /// <returns>The legal entity value.</returns>
+    [DataMember('legalEntity'), BusinessEventsDataMember("Legal Entity")]
+    public DataAreaId parmLegalEntity(DataAreaId _legalEntity = legalEntity)
+    {
+        legalEntity = _legalEntity;
+
+        return legalEntity;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmClosingDate</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the closing date.
+    /// </summary>
+    /// <param name="_closingDate">The closing date value.</param>
+    /// <returns>The closing date value.</returns>
+    [DataMember('closingDate'), BusinessEventsDataMember("Closing Date")]
+    public TransDate parmClosingDate(TransDate _closingDate = closingDate)
+    {
+        closingDate = _closingDate;
+
+        return closingDate;
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

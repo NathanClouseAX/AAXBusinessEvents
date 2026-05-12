@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXInventClosingCompletedBusinessEvent</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Business event triggered when an inventory closing is completed.
+/// </summary>
+[BusinessEvents(classStr(AAXInventClosingCompletedBusinessEventContract), 'InventClosingCompletedBusinessEventName', 'InventClosingCompletedBusinessEventDescription', ModuleAxapta::Inventory)]
+public final class AAXInventClosingCompletedBusinessEvent extends BusinessEventsBase
+{
+    private TransDate closingDate;
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>parmClosingDate</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the closing date for building the event contract.
+    /// </summary>
+    private TransDate parmClosingDate(TransDate _closingDate = closingDate)
+    {
+        closingDate = _closingDate;
+
+        return closingDate;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>construct</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Creates a new <c>AAXInventClosingCompletedBusinessEvent</c> instance from the specified closing date.
+    /// </summary>
+    /// <param name="_closingDate">The inventory closing date.</param>
+    /// <returns>A new instance of <c>AAXInventClosingCompletedBusinessEvent</c>.</returns>
+    public static AAXInventClosingCompletedBusinessEvent construct(TransDate _closingDate)
+    {
+        AAXInventClosingCompletedBusinessEvent businessEvent = new AAXInventClosingCompletedBusinessEvent();
+        businessEvent.parmClosingDate(_closingDate);
+
+        return businessEvent;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>new</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Private constructor. Use static factory methods to create instances.
+    /// </summary>
+    private void new()
+    {
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>buildContract</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Builds the data contract for this business event.
+    /// </summary>
+    /// <returns>The populated <c>AAXInventClosingCompletedBusinessEventContract</c>.</returns>
+    [Wrappable(true), Replaceable(true)]
+    public BusinessEventsContract buildContract()
+    {
+        return AAXInventClosingCompletedBusinessEventContract::construct(closingDate);
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXFixedAssetAcquisitionPostedBusinessEvent</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Business event triggered when a fixed asset acquisition is posted.
+/// </summary>
+[BusinessEvents(classStr(AAXFixedAssetAcquisitionPostedBusinessEventContract), 'FixedAssetAcquisitionPostedBusinessEventName', 'FixedAssetAcquisitionPostedBusinessEventDescription', ModuleAxapta::FixedAssets)]
+public final class AAXFixedAssetAcquisitionPostedBusinessEvent extends BusinessEventsBase
+{
+    private AssetTrans assetTrans;
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>parmAssetTrans</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the source AssetTrans for building the event contract.
+    /// </summary>
+    private AssetTrans parmAssetTrans(AssetTrans _assetTrans = assetTrans)
+    {
+        assetTrans = _assetTrans;
+
+        return assetTrans;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>newFromAssetTrans</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Creates a new <c>AAXFixedAssetAcquisitionPostedBusinessEvent</c> instance from the specified <c>AssetTrans</c> record.
+    /// </summary>
+    /// <param name="_assetTrans">The source AssetTrans record.</param>
+    /// <returns>A new instance of <c>AAXFixedAssetAcquisitionPostedBusinessEvent</c>.</returns>
+    public static AAXFixedAssetAcquisitionPostedBusinessEvent newFromAssetTrans(AssetTrans _assetTrans)
+    {
+        AAXFixedAssetAcquisitionPostedBusinessEvent businessEvent = new AAXFixedAssetAcquisitionPostedBusinessEvent();
+        businessEvent.parmAssetTrans(_assetTrans);
+
+        return businessEvent;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>new</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Private constructor. Use static factory methods to create instances.
+    /// </summary>
+    private void new()
+    {
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>buildContract</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Builds the data contract for this business event.
+    /// </summary>
+    /// <returns>The populated <c>AAXFixedAssetAcquisitionPostedBusinessEventContract</c>.</returns>
+    [Wrappable(true), Replaceable(true)]
+    public BusinessEventsContract buildContract()
+    {
+        return AAXFixedAssetAcquisitionPostedBusinessEventContract::newFromAssetTrans(assetTrans);
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

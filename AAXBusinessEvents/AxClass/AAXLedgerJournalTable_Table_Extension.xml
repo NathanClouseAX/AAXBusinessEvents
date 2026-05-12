@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXLedgerJournalTable_Table_Extension</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Extension of <c>LedgerJournalTable</c> to trigger the general journal posted business event.
+/// </summary>
+[ExtensionOf(tableStr(LedgerJournalTable))]
+final class AAXLedgerJournalTable_Table_Extension
+{
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>update</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Triggers the general journal posted business event when a daily journal is posted.
+    /// </summary>
+    void update()
+    {
+        boolean wasNotPosted = (this.orig().Posted == NoYes::No);
+
+        next update();
+
+        if (wasNotPosted && this.Posted == NoYes::Yes && this.JournalType == LedgerJournalType::Daily)
+        {
+            if (BusinessEventsConfigurationReader::isBusinessEventEnabled(classStr(AAXGeneralJournalPostedBusinessEvent)))
+            {
+                AAXGeneralJournalPostedBusinessEvent::newFromLedgerJournalTable(this).send();
+            }
+        }
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

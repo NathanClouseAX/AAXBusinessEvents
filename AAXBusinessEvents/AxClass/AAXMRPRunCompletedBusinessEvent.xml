@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXMRPRunCompletedBusinessEvent</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Business event triggered when an MRP run is completed.
+/// </summary>
+[BusinessEvents(classStr(AAXMRPRunCompletedBusinessEventContract), 'MRPRunCompletedBusinessEventName', 'MRPRunCompletedBusinessEventDescription', ModuleAxapta::MasterPlanning)]
+public final class AAXMRPRunCompletedBusinessEvent extends BusinessEventsBase
+{
+    private str planId;
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>parmPlanId</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the plan ID for building the event contract.
+    /// </summary>
+    private str parmPlanId(str _planId = planId)
+    {
+        planId = _planId;
+
+        return planId;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>construct</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Creates a new <c>AAXMRPRunCompletedBusinessEvent</c> instance from the specified plan ID.
+    /// </summary>
+    /// <param name="_planId">The MRP plan identifier.</param>
+    /// <returns>A new instance of <c>AAXMRPRunCompletedBusinessEvent</c>.</returns>
+    public static AAXMRPRunCompletedBusinessEvent construct(str _planId)
+    {
+        AAXMRPRunCompletedBusinessEvent businessEvent = new AAXMRPRunCompletedBusinessEvent();
+        businessEvent.parmPlanId(_planId);
+
+        return businessEvent;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>new</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Private constructor. Use static factory methods to create instances.
+    /// </summary>
+    private void new()
+    {
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>buildContract</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Builds the data contract for this business event.
+    /// </summary>
+    /// <returns>The populated <c>AAXMRPRunCompletedBusinessEventContract</c>.</returns>
+    [Wrappable(true), Replaceable(true)]
+    public BusinessEventsContract buildContract()
+    {
+        return AAXMRPRunCompletedBusinessEventContract::construct(planId);
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

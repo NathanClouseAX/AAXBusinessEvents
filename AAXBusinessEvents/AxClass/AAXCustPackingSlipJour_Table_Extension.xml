@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXCustPackingSlipJour_Table_Extension</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Extension of <c>CustPackingSlipJour</c> to trigger the sales packing slip posted business event.
+/// </summary>
+[ExtensionOf(tableStr(CustPackingSlipJour))]
+final class AAXCustPackingSlipJour_Table_Extension
+{
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>insert</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Triggers the sales packing slip posted business event when a packing slip journal is created.
+    /// </summary>
+    void insert()
+    {
+        next insert();
+
+        if (BusinessEventsConfigurationReader::isBusinessEventEnabled(classStr(AAXSalesPackingSlipPostedBusinessEvent)))
+        {
+            AAXSalesPackingSlipPostedBusinessEvent::newFromCustPackingSlipJour(this).send();
+        }
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXTransferOrderReceivedBusinessEvent</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Business event triggered when a transfer order is received.
+/// </summary>
+[BusinessEvents(classStr(AAXTransferOrderReceivedBusinessEventContract), 'TransferOrderReceivedBusinessEventName', 'TransferOrderReceivedBusinessEventDescription', ModuleAxapta::Inventory)]
+public final class AAXTransferOrderReceivedBusinessEvent extends BusinessEventsBase
+{
+    private InventTransferTable inventTransferTable;
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>parmInventTransferTable</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the source InventTransferTable for building the event contract.
+    /// </summary>
+    private InventTransferTable parmInventTransferTable(InventTransferTable _inventTransferTable = inventTransferTable)
+    {
+        inventTransferTable = _inventTransferTable;
+
+        return inventTransferTable;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>newFromInventTransferTable</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Creates a new <c>AAXTransferOrderReceivedBusinessEvent</c> instance from the specified <c>InventTransferTable</c> record.
+    /// </summary>
+    /// <param name="_inventTransferTable">The source InventTransferTable record.</param>
+    /// <returns>A new instance of <c>AAXTransferOrderReceivedBusinessEvent</c>.</returns>
+    public static AAXTransferOrderReceivedBusinessEvent newFromInventTransferTable(InventTransferTable _inventTransferTable)
+    {
+        AAXTransferOrderReceivedBusinessEvent businessEvent = new AAXTransferOrderReceivedBusinessEvent();
+        businessEvent.parmInventTransferTable(_inventTransferTable);
+
+        return businessEvent;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>new</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Private constructor. Use static factory methods to create instances.
+    /// </summary>
+    private void new()
+    {
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>buildContract</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Builds the data contract for this business event.
+    /// </summary>
+    /// <returns>The populated <c>AAXTransferOrderReceivedBusinessEventContract</c>.</returns>
+    [Wrappable(true), Replaceable(true)]
+    public BusinessEventsContract buildContract()
+    {
+        return AAXTransferOrderReceivedBusinessEventContract::newFromInventTransferTable(inventTransferTable);
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

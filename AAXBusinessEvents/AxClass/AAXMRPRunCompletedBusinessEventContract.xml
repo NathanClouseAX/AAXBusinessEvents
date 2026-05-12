@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXMRPRunCompletedBusinessEventContract</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Data contract for the <c>AAXMRPRunCompletedBusinessEvent</c> business event.
+/// </summary>
+[DataContract]
+public final class AAXMRPRunCompletedBusinessEventContract extends BusinessEventsContract
+{
+    private DataAreaId legalEntity;
+    private str planId;
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>construct</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Creates a new <c>AAXMRPRunCompletedBusinessEventContract</c> from the specified plan ID.
+    /// </summary>
+    /// <param name="_planId">The plan ID value.</param>
+    /// <returns>A new populated instance of <c>AAXMRPRunCompletedBusinessEventContract</c>.</returns>
+    public static AAXMRPRunCompletedBusinessEventContract construct(str _planId)
+    {
+        var contract = new AAXMRPRunCompletedBusinessEventContract();
+        contract.parmLegalEntity(curExt());
+        contract.parmPlanId(_planId);
+
+        return contract;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>new</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Private constructor. Use static factory methods to create instances.
+    /// </summary>
+    private void new()
+    {
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmLegalEntity</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the legal entity.
+    /// </summary>
+    /// <param name="_legalEntity">The legal entity value.</param>
+    /// <returns>The legal entity value.</returns>
+    [DataMember('legalEntity'), BusinessEventsDataMember("Legal Entity")]
+    public DataAreaId parmLegalEntity(DataAreaId _legalEntity = legalEntity)
+    {
+        legalEntity = _legalEntity;
+
+        return legalEntity;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>parmPlanId</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the plan ID.
+    /// </summary>
+    /// <param name="_planId">The plan ID value.</param>
+    /// <returns>The plan ID value.</returns>
+    [DataMember('planId'), BusinessEventsDataMember("Plan ID")]
+    public str parmPlanId(str _planId = planId)
+    {
+        planId = _planId;
+
+        return planId;
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

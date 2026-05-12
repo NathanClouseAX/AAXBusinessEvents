@@ -4,7 +4,7 @@
 	<SourceCode>
 		<Declaration><![CDATA[
 /// <summary>
-/// Vendor Updated business event.
+/// Business event triggered when a vendor record is updated.
 /// </summary>
 [BusinessEvents(classStr(AAXVendorUpdatedBusinessEventContract), 'VendorUpdatedBusinessEventName', 'VendorUpdatedBusinessEventDescription', ModuleAxapta::Vendor)]
 public final class AAXVendorUpdatedBusinessEvent extends BusinessEventsBase
@@ -17,6 +17,9 @@ public final class AAXVendorUpdatedBusinessEvent extends BusinessEventsBase
 			<Method>
 				<Name>parmVendTable</Name>
 				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the source VendTable for building the event contract.
+    /// </summary>
     private VendTable parmVendTable(VendTable _vendTable = vendTable)
     {
         vendTable = _vendTable;
@@ -29,6 +32,11 @@ public final class AAXVendorUpdatedBusinessEvent extends BusinessEventsBase
 			<Method>
 				<Name>newFromVendTable</Name>
 				<Source><![CDATA[
+    /// <summary>
+    /// Creates a new <c>AAXVendorUpdatedBusinessEvent</c> instance from the specified <c>VendTable</c> record.
+    /// </summary>
+    /// <param name="_vendTable">The source VendTable record.</param>
+    /// <returns>A new instance of <c>AAXVendorUpdatedBusinessEvent</c>.</returns>
     public static AAXVendorUpdatedBusinessEvent newFromVendTable(VendTable _vendTable)
     {
         AAXVendorUpdatedBusinessEvent businessEvent = new AAXVendorUpdatedBusinessEvent();
@@ -42,6 +50,9 @@ public final class AAXVendorUpdatedBusinessEvent extends BusinessEventsBase
 			<Method>
 				<Name>new</Name>
 				<Source><![CDATA[
+    /// <summary>
+    /// Private constructor. Use static factory methods to create instances.
+    /// </summary>
     private void new()
     {
     }
@@ -51,6 +62,10 @@ public final class AAXVendorUpdatedBusinessEvent extends BusinessEventsBase
 			<Method>
 				<Name>buildContract</Name>
 				<Source><![CDATA[
+    /// <summary>
+    /// Builds the data contract for this business event.
+    /// </summary>
+    /// <returns>The populated <c>AAXVendorUpdatedBusinessEventContract</c>.</returns>
     [Wrappable(true), Replaceable(true)]
     public BusinessEventsContract buildContract()
     {

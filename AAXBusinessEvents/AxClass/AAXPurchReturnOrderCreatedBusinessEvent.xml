@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXPurchReturnOrderCreatedBusinessEvent</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Business event triggered when a purchase return order is created.
+/// </summary>
+[BusinessEvents(classStr(AAXPurchReturnOrderCreatedBusinessEventContract), 'PurchReturnOrderCreatedBusinessEventName', 'PurchReturnOrderCreatedBusinessEventDescription', ModuleAxapta::PurchaseOrder)]
+public final class AAXPurchReturnOrderCreatedBusinessEvent extends BusinessEventsBase
+{
+    private PurchTable purchTable;
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>parmPurchTable</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the source PurchTable for building the event contract.
+    /// </summary>
+    private PurchTable parmPurchTable(PurchTable _purchTable = purchTable)
+    {
+        purchTable = _purchTable;
+
+        return purchTable;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>newFromPurchTable</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Creates a new <c>AAXPurchReturnOrderCreatedBusinessEvent</c> instance from the specified <c>PurchTable</c> record.
+    /// </summary>
+    /// <param name="_purchTable">The source PurchTable record.</param>
+    /// <returns>A new instance of <c>AAXPurchReturnOrderCreatedBusinessEvent</c>.</returns>
+    public static AAXPurchReturnOrderCreatedBusinessEvent newFromPurchTable(PurchTable _purchTable)
+    {
+        AAXPurchReturnOrderCreatedBusinessEvent businessEvent = new AAXPurchReturnOrderCreatedBusinessEvent();
+        businessEvent.parmPurchTable(_purchTable);
+
+        return businessEvent;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>new</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Private constructor. Use static factory methods to create instances.
+    /// </summary>
+    private void new()
+    {
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>buildContract</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Builds the data contract for this business event.
+    /// </summary>
+    /// <returns>The populated <c>AAXPurchReturnOrderCreatedBusinessEventContract</c>.</returns>
+    [Wrappable(true), Replaceable(true)]
+    public BusinessEventsContract buildContract()
+    {
+        return AAXPurchReturnOrderCreatedBusinessEventContract::newFromPurchTable(purchTable);
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

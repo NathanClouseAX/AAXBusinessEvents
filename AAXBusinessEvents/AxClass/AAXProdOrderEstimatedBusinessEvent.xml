@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXProdOrderEstimatedBusinessEvent</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Business event triggered when a production order estimation is completed.
+/// </summary>
+[BusinessEvents(classStr(AAXProdOrderEstimatedBusinessEventContract), 'ProdOrderEstimatedBusinessEventName', 'ProdOrderEstimatedBusinessEventDescription', ModuleAxapta::Production)]
+public final class AAXProdOrderEstimatedBusinessEvent extends BusinessEventsBase
+{
+    private ProdTable prodTable;
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>parmProdTable</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Gets or sets the source ProdTable for building the event contract.
+    /// </summary>
+    private ProdTable parmProdTable(ProdTable _prodTable = prodTable)
+    {
+        prodTable = _prodTable;
+
+        return prodTable;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>newFromProdTable</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Creates a new <c>AAXProdOrderEstimatedBusinessEvent</c> instance from the specified <c>ProdTable</c> record.
+    /// </summary>
+    /// <param name="_prodTable">The source ProdTable record.</param>
+    /// <returns>A new instance of <c>AAXProdOrderEstimatedBusinessEvent</c>.</returns>
+    public static AAXProdOrderEstimatedBusinessEvent newFromProdTable(ProdTable _prodTable)
+    {
+        AAXProdOrderEstimatedBusinessEvent businessEvent = new AAXProdOrderEstimatedBusinessEvent();
+        businessEvent.parmProdTable(_prodTable);
+
+        return businessEvent;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>new</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Private constructor. Use static factory methods to create instances.
+    /// </summary>
+    private void new()
+    {
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>buildContract</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Builds the data contract for this business event.
+    /// </summary>
+    /// <returns>The populated <c>AAXProdOrderEstimatedBusinessEventContract</c>.</returns>
+    [Wrappable(true), Replaceable(true)]
+    public BusinessEventsContract buildContract()
+    {
+        return AAXProdOrderEstimatedBusinessEventContract::newFromProdTable(prodTable);
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

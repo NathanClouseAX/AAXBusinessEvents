@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXReqCalc_Class_Extension</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Extension of <c>ReqCalc</c> to trigger the MRP run completed business event.
+/// </summary>
+[ExtensionOf(classStr(ReqCalc))]
+final class AAXReqCalc_Class_Extension
+{
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>run</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Triggers the MRP run completed business event after the master planning run finishes.
+    /// </summary>
+    void run()
+    {
+        next run();
+
+        if (BusinessEventsConfigurationReader::isBusinessEventEnabled(classStr(AAXMRPRunCompletedBusinessEvent)))
+        {
+            AAXMRPRunCompletedBusinessEvent::construct(this.parmReqPlanId()).send();
+        }
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

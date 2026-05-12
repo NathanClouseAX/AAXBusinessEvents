@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>AAXProdTable_Table_Extension</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+/// <summary>
+/// Extension of <c>ProdTable</c> to trigger production order status change business events.
+/// </summary>
+[ExtensionOf(tableStr(ProdTable))]
+final class AAXProdTable_Table_Extension
+{
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>update</Name>
+				<Source><![CDATA[
+    /// <summary>
+    /// Triggers production order lifecycle business events when the production status changes.
+    /// </summary>
+    void update(boolean _dropEstimated, Common _childBuffer)
+    {
+        ProdStatus origStatus = this.orig().ProdStatus;
+
+        next update(_dropEstimated, _childBuffer);
+
+        if (origStatus != this.ProdStatus)
+        {
+            switch (this.ProdStatus)
+            {
+                case ProdStatus::Scheduled:
+                    if (BusinessEventsConfigurationReader::isBusinessEventEnabled(classStr(AAXProdOrderScheduledBusinessEvent)))
+                    {
+                        AAXProdOrderScheduledBusinessEvent::newFromProdTable(this).send();
+                    }
+                    break;
+
+                case ProdStatus::StartedUp:
+                    if (BusinessEventsConfigurationReader::isBusinessEventEnabled(classStr(AAXProdOrderStartedBusinessEvent)))
+                    {
+                        AAXProdOrderStartedBusinessEvent::newFromProdTable(this).send();
+                    }
+                    break;
+
+                case ProdStatus::ReportedFinished:
+                    if (BusinessEventsConfigurationReader::isBusinessEventEnabled(classStr(AAXProdReportFinishedBusinessEvent)))
+                    {
+                        AAXProdReportFinishedBusinessEvent::newFromProdTable(this, this.QtySched, 0).send();
+                    }
+                    break;
+
+                case ProdStatus::Completed:
+                    if (BusinessEventsConfigurationReader::isBusinessEventEnabled(classStr(AAXProdOrderEndedBusinessEvent)))
+                    {
+                        AAXProdOrderEndedBusinessEvent::newFromProdTable(this, this.QtySched, 0).send();
+                    }
+                    break;
+            }
+        }
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>
